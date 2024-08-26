@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from '../styles/ProductCard.module.css'; // Ajuste o caminho conforme necessário
+import styles from '../../styles/ProductCard.module.css'; // Ajuste o caminho conforme necessário
+import Image from 'next/image';
 
 interface ProductCardProps {
   imageUrl: string;
@@ -11,7 +12,7 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ imageUrl, name, description, price }) => {
   return (
     <div className={styles.card}>
-      <img src={imageUrl} alt={name} className={styles.image} />
+      <Image src={imageUrl} alt={name} className={styles.image} />
       <div className={styles.content}>
         <h2 className={styles.name}>{name}</h2>
         <p className={styles.description}>{description}</p>

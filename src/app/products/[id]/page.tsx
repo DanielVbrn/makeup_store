@@ -1,9 +1,9 @@
+// src/app/products/[id]/page.tsx
 import React from 'react';
-import ProductCard from '../../components/display/ProductCard'; // Ajuste o caminho conforme necessário
-import { Product } from '../../api/products/[id]/route'; // Ajuste o caminho conforme necessário
+import { Product } from '@/app/api/products/[id]/route'; // Importar o tipo Product
 
 interface ProductPageProps {
-  params: { id: string };
+  params: { id: string }; // Adicionar o parâmetro id na interface
 }
 
 const fetchProduct = async (id: string): Promise<Product> => {
@@ -14,25 +14,36 @@ const fetchProduct = async (id: string): Promise<Product> => {
   return response.json();
 };
 
-const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
+const ProductPage: React.FC<ProductPageProps> = ({ params }) => {
   const { id } = params;
 
-  try {
-    const product = await fetchProduct(id);
+  const [product, setProduct] = React.useState<Product | null>(null);
+  const [error, setError] = React.useState<string | null>(null);
 
-    return (
-      <div>
-        <ProductCard
-          imageUrl={product.imageUrl}
-          name={product.name}
-          description={product.description}
-          price={product.price}
-        />
-      </div>
-    );
-  } catch (error) {
-    return <p>Erro ao carregar produto</p>;
-  }
+  React.useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const productData = await fetchProduct(id);
+        setProduct(productData);
+      } catch (err) {
+        setError('Erro ao carregar produto');
+      }
+    };
+
+    getProduct();
+  }, [id]);
+
+  if (error) return <p>{error}</p>;
+  if (!product) return <p>Carregando...</p>;
+
+  return (
+    <div>
+      <h1>{product.name}</h1>
+      <img src={product.imageUrl} alt={product.name} />
+      <p>{product.description}</p>
+      <p>Preço: ${product.price}</p>
+    </div>
+  );
 };
 
 export default ProductPage;

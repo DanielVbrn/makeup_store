@@ -29,7 +29,7 @@ const SideBar = () => {
         <h2 className={styles.title}>Marcas Populares</h2>
         <ul className={styles.brandList}>
           <li><Link href="/products?brand=maybelline" className={styles.link}>Maybelline</Link></li>
-          <li><Link href="/products?brand=loreal" className={styles.link}>L'Oréal</Link></li>
+          <li><Link href="/products?brand=loreal" className={styles.link}>L&apos;Oréal</Link></li>
           <li><Link href="/products?brand=clinique" className={styles.link}>Clinique</Link></li>
           <li><Link href="/products?brand=estee-lauder" className={styles.link}>Estée Lauder</Link></li>
         </ul>
