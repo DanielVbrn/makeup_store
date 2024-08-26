@@ -1,0 +1,38 @@
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo h1 {
+    font-size: 24px;
+    color: #d0846f;
+    /* Cor de destaque para maquiagem */
+    margin: 0;
+}
+
+.nav .menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav .menu li {
+    margin-left: 20px;
+}
+
+.link {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.link:hover {
+    text-decoration: underline;
+    color: #d0846f;
+}
