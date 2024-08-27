@@ -25,7 +25,7 @@ const Footer = () => {
           <h4>Contato</h4>
           <p>Email: <a href="mailto:info@example.com" className={styles.link}>info@example.com</a></p>
           <p>Telefone: (123) 456-7890</p>
-        </div>
+        </ div>
         <div className={styles.section}>
           <h4>Siga-nos</h4>
           <a href="https://facebook.com" className={styles.socialLink} target="_blank" rel="noopener noreferrer">Facebook</a>
